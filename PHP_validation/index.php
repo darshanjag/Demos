@@ -1,8 +1,12 @@
 <?php
+
+$firstname = $lastname = $password = $cpassword = $gender = $course = $address = $city='';// strings for form data
+      $firstnameErr = $lastnameErr = $passwordErr = $cpasswordErr = $genderErr = $courseErr = $addressErr = $cityErr='';
+
+
 if(!empty($_POST)){
 
-   $firstname = $lastname = $password = $cpassword = $gender = $course = $address = $city='';// strings for form data
-      $firstnameErr = $lastnameErr = $passwordErr = $cpasswordErr = $genderErr = $courseErr = $addressErr = $cityErr='';
+
 // strings for errors
    if($_POST['firstname']!=''){
 
@@ -57,7 +61,7 @@ if(!empty($_POST)){
       if($_POST['course']!=''){
 
       $name = $_POST['course'];
-      foreach($name as $cor){
+      foreach($name as $cor){ //loop to get values from the course array.
          $course[] = $cor;
       }
 
@@ -84,6 +88,8 @@ if(!empty($_POST)){
       $cityErr = 'please enter the city';
    }
    
+
+
 
   
 }
@@ -141,22 +147,23 @@ if(!empty($_POST)){
                </div>
                <div class="form-group ">
                   <label for="pwd">Gender:</label>
-                  <input type="radio" name="gender" value="male"> Male
-                  <input type="radio" name="gender" value="female"> Female<br>
+                  <input type="radio" name="gender" value="male" checked="<?php if($gender=='male'){echo 'checked';}?>"> Male
+                  <input type="radio" name="gender" value="female" checked="<?php  if($gender=='female'){echo 'checked';}?>" > Female<br>
                   <span id="error" ><?=$genderErr?></span>
                </div>
                <div class="form-group">
                   <table>
                      <label for="pwd">Courses:</label>
+    
                      <tr>
-                        <td>  <input type="checkbox" name="course[]" value="php">php</td>
-                        <td> <input type="checkbox" name="course[]" value="python"> python</td>
-                        <td> <input type="checkbox" name="course[]" value="java"> java</td>
+                        <td>  <input type="checkbox" name="course[]" value="php" <?php if(!empty($_POST)){ if(in_array("php", $course)){echo 'checked';}}?>>php</td> <!-- checks if the string is present in the array or not. -->
+                        <td> <input type="checkbox" name="course[]" value="python"  <?php if(!empty($_POST)){ if(in_array("python", $course)){echo 'checked';}}?>> python</td>
+                        <td> <input type="checkbox" name="course[]" value="java"  <?php if(!empty($_POST)){ if(in_array("java", $course)){echo 'checked';}}?>> java</td>
                      </tr>
                      <tr>
-                        <td> <input type="checkbox" name="course[]" value="c++"> c++</td>
-                        <td> <input type="checkbox" name="course[]" value="ruby"> ruby</td>
-                        <td> <input type="checkbox" name="course[]" value="node"> node</td>
+                        <td> <input type="checkbox" name="course[]" value="c++"  <?php if(!empty($_POST)){ if(in_array("c++", $course)){echo 'checked';}}?>> c++</td>
+                        <td> <input type="checkbox" name="course[]" value="ruby"  <?php if(!empty($_POST)){ if(in_array("ruby", $course)){echo 'checked';}}?>> ruby</td>
+                        <td> <input type="checkbox" name="course[]" value="node" <?php if(!empty($_POST)){ if(in_array("node", $course)){echo 'checked';}}?>> node</td>
                      </tr>
                   </table>
                   <span id="error" ><?=$courseErr?></span>
