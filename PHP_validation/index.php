@@ -66,7 +66,7 @@ if(!empty($_POST)){
       }
 
    } else {
-
+      $course[] ='';
       $courseErr = 'please enter the course';
    }
 
