@@ -41,6 +41,14 @@ if(!empty($_POST)){
       if($_POST['cpassword']!=''){
 
       $cpassword = $_POST['cpassword'];
+      if($password!=''){
+         if($cpassword == $password){
+            $cpasswordErr = '';
+         }else{
+            $cpasswordErr = 'please repeat the same password';
+         }
+
+      }
 
    } else {
 
