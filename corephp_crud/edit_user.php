@@ -4,13 +4,13 @@ $id=$_GET['id'];
 //print_r($id);die;
 $select="select * from tbl_user where user_id='$id'";
   $result=mysqli_query($con,$select);
- $data=mysqli_fetch_array($result);
+  $data=mysqli_fetch_array($result);
 
 if($_POST){
- $firstname=$_POST['firstname'];
- $lastname=$_POST['lastname'];
- $email=$_POST['email'];
- $mobile=$_POST['mobile'];
+   $firstname=$_POST['firstname'];
+   $lastname=$_POST['lastname'];
+   $email=$_POST['email'];
+   $mobile=$_POST['mobile'];
 
   
   $update='Update tbl_user set firstname="'.$firstname.'",lastname="'.$lastname.'",email="'.$email.'",mobile="'.$mobile.'" where user_id='.$id.'';
