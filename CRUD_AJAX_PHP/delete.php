@@ -6,7 +6,7 @@ $id=$_GET['id'];
   $result=mysqli_query($con,$delete);
    if($result){
    	echo "success";
-   // header("Location: show.php");
+    header("Location: show.php");
    }else{
    	echo "failed";
    }
